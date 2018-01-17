@@ -1,0 +1,119 @@
+canvas {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid 1px black;
+    box-shadow: 0px 0px 40px rgb(233, 226, 226);
+}
+
+h1, h2{
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman';
+}
+
+body{
+    background-image: url("resources/starry.png");
+    background-repeat: repeat;
+}
+
+.navigation{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.menu{
+}
+
+.line{
+    border-bottom: ridge 4px rgb(156, 156, 156);
+    margin-bottom: -32px;
+}
+
+.menu ul{
+    margin-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+.navigation-button{
+    font-family: 'Times New Roman';
+    float: left;
+    text-align:center;
+    display:block;
+    width:250px;
+    color: black;
+    padding: 3px;
+    text-decoration:none;
+    border: outset  3px rgb(156, 156, 156);
+    background-color: rgb(255, 254, 247);
+}
+
+.navigation-button:active{
+    border: inset  3px rgb(199, 199, 199);
+}
+
+.timer{
+    padding: 10px 30px;
+    background-color: red;
+    border: ridge 6px rgb(124, 120, 107);
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px; 
+    font-size: 30px;
+}
+
+@media screen and (min-width: 401px){
+    .container {
+        margin: auto;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .container {
+        width: 100%;
+    }
+}
+
+.submit{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 6px outset antiquewhite;
+    background-color: rgb(14, 14, 14);
+    font-size: 24px;
+    color: antiquewhite;
+    font-weight: 600;
+    font-family: 'Times New Roman';
+}
+
+.submit:active{
+    border: 6px inset antiquewhite;
+}
+
+.link{
+    text-align: center;
+    color:antiquewhite;
+}
+
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 6px ridge #ccc;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
