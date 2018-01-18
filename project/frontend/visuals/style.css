@@ -4,6 +4,11 @@ canvas {
     display: block;
     border: solid 1px black;
     box-shadow: 0px 0px 40px rgb(233, 226, 226);
+    image-rendering: pixelated;
+}
+
+img{
+    image-rendering: pixelated;
 }
 
 h1, h2{

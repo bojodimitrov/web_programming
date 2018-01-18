@@ -3,8 +3,9 @@ class Painter {
         this.baseColor = [255, 255, 255];
         this.multiplier = multiplier;
         this.defaultViewSize = defaultViewSize;
+        this.image_place = new Image();
+        this.mode = 'large';
         this.initCanvas(canvasId);
-        this.mode = 'compact';
 
     }
 
@@ -17,6 +18,7 @@ class Painter {
         }
         this.width = this.canvas.width;
         this.height = this.canvas.height;
+        this.context.imageSmoothingEnabled = false;
 
         this.context.fillStyle = this.getRGB(this.baseColor);
         this.context.fillRect(0, 0, this.width, this.height)
@@ -24,20 +26,22 @@ class Painter {
 
     draw() {
         var data = MockApi.getRandom();
-        if(this.mode === 'large'){
-            this.drawPixels(data, this.multiplier);
+        if (this.mode === 'large') {
+            this.drawPlace(data, this.multiplier);
         }
-        if(this.mode === 'compact'){
-            this.drawPixels(data, 1);
+        if (this.mode === 'compact') {
+            this.drawPlace(data, 1);
         }
     }
 
-    drawPixels(data, pixelSize){
-        for (var i = 0; i < data.length; i++) {
-            this.context.fillStyle = this.getRGB(data[i][2]);
-            this.context.fillRect(data[i][0]*pixelSize, data[i][1]*pixelSize, pixelSize, pixelSize);
-        }
+    drawPlace(img, pixelSize) {
+        // for (var i = 0; i < data.length; i++) {
+        //     this.context.fillStyle = this.getRGB(data[i][2]);
+        //     this.context.fillRect(data[i][0]*pixelSize, data[i][1]*pixelSize, pixelSize, pixelSize);
+        // }
+        this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
     }
+
 
     getRGB(color_array) {
         return 'rgb(' + color_array[0] + ',' + color_array[1] + ',' + color_array[2] + ')'
@@ -51,11 +55,13 @@ class Painter {
         if (mode === 'large') {
             this.canvas.width = this.defaultViewSize * this.multiplier;
             this.canvas.height = this.defaultViewSize * this.multiplier;
+            this.context.imageSmoothingEnabled = false;
             this.mode = mode;
         }
         if (mode === 'compact') {
             this.canvas.width = this.defaultViewSize;
             this.canvas.height = this.defaultViewSize;
+            this.context.imageSmoothingEnabled = false;
             this.mode = mode;
         }
     }
