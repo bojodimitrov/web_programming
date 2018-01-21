@@ -1,3 +1,11 @@
+.canvas-position{
+    padding-top: 0px;
+}
+
+.logout-button{
+    color: white;
+}
+
 canvas {
     margin-left: auto;
     margin-right: auto;
@@ -7,8 +15,16 @@ canvas {
     image-rendering: pixelated;
 }
 
-img{
-    image-rendering: pixelated;
+.header{
+    position: relative;
+    width: 100%;
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
 }
 
 h1, h2{
@@ -18,13 +34,15 @@ h1, h2{
 }
 
 body{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2934);
     background-image: url("resources/starry.png");
     background-repeat: repeat;
 }
 
 .navigation{
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .menu{
@@ -32,11 +50,14 @@ body{
 
 .line{
     border-bottom: ridge 4px rgb(156, 156, 156);
-    margin-bottom: -32px;
+    margin-bottom: -36px;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 .menu ul{
     margin-left: 0;
+    margin-top: 20px; 
     list-style: none;
     text-align: center;
 }
@@ -70,7 +91,6 @@ body{
     border: ridge 6px rgb(124, 120, 107);
     width: 100px;
     text-align: center;
-    margin: auto;
     margin-bottom: 20px; 
     font-size: 30px;
 }
@@ -121,4 +141,39 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
+}
+
+ul {
+    padding: 0;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+.palitra-wrapper{
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.color_list button{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0 10px;
+    text-align: center;
+    background: white;
+    border: 3px groove black;
+}
+
+
+.palitra{
+    display: none;
+    padding: 10px 30px;
+    background-color: red;
+    border: ridge 6px rgb(124, 120, 107);
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px; 
+    font-size: 30px;
 }

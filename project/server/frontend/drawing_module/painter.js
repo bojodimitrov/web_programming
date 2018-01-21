@@ -1,16 +1,20 @@
 class Painter {
-    constructor(canvasId, multiplier, defaultViewSize) {
+    constructor(canvas, multiplier, defaultViewSize) {
         this.baseColor = [255, 255, 255];
         this.multiplier = multiplier;
         this.defaultViewSize = defaultViewSize;
         this.image_place = new Image();
-        this.mode = 'large';
-        this.initCanvas(canvasId);
-
+        this.mode = 'compact';
+        this.canvas = canvas;
+        this.initCanvas();
+        this.registerEvents();
     }
 
-    initCanvas(canvasId) {
-        this.canvas = document.getElementById(canvasId);
+    registerEvents(){
+        
+    }
+
+    initCanvas(canvas) {
         if (this.canvas.getContext) {
             this.context = this.canvas.getContext('2d');
         } else {
@@ -40,6 +44,20 @@ class Painter {
         //     this.context.fillRect(data[i][0]*pixelSize, data[i][1]*pixelSize, pixelSize, pixelSize);
         // }
         this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    updatePixel(x, y, color){
+        var currentMultiplier = 0;
+        if (this.mode === 'large') {
+            currentMultiplier = this.multiplier;
+        }        
+        if (this.mode === 'compact') {
+            currentMultiplier = 1;
+        }
+        var pixelStartX = Math.floor(x / currentMultiplier) * currentMultiplier;
+        var pixelStartY = Math.floor(y / currentMultiplier) * currentMultiplier;
+        this.context.fillStyle = color;
+        this.context.fillRect(pixelStartX, pixelStartY, currentMultiplier, currentMultiplier)
     }
 
 
