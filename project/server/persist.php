@@ -19,27 +19,34 @@
             $this->database_name = 'the_place';
             $this->user = 'the_place_user';
             $this->pass = 'the_place_pass';
-            $dsn = "mysql:host=localhost";
-            $pdo = new PDO($dsn,"root","");
+            $this->dsn = "mysql:host=localhost";
             try{
-                $this->connection = new PDO('mysql:host=localhost;dbname=php_homeworks', 'php', 'php123');
+                $this->connection = new PDO($this->dsn.';dbname='.$this->database_name, $this->user, $this->pass);
+                //$this->connection = new PDO('mysql:host=localhost;dbname=php_homeworks', 'php', 'php123');
             }
-            catch(Exception $e){
-
+            catch(PDOException $e){
+                $this->create_database();
             }
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
         private function create_database(){
+            $this->connection = new PDO($this->dsn,"root","");
             
 
             //Creation of user "user_name"
-            $pdo->query("CREATE USER 'user_name'@'%' IDENTIFIED BY 'pass_word';");
+            $this->connection->query("CREATE USER '".$this->user."'@'%' IDENTIFIED BY '".$this->pass."';");
             //Creation of database "new_db"
-            $pdo->query("CREATE DATABASE `new_db`;");
+            $this->connection->query("CREATE DATABASE `".$this->database_name."`;");
             //Adding all privileges on our newly created database
-            $pdo->query("GRANT ALL PRIVILEGES on `new_db`.* TO 'user_name'@'%';");
+            $this->connection->query("GRANT ALL PRIVILEGES on `".$this->database_name."`.* TO '".$this->user."'@'%' identified by '".$this->pass."';");
+
         }
 
+        public function check_user($login_model){
+            
+        }
     }
+
+    
 ?>

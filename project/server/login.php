@@ -1,5 +1,6 @@
 <?php
     include('form_interceptor.php');
+    include('persist.php');
 
     class LoginModel{
         function __construct($username, $password){
@@ -17,5 +18,6 @@
     }
     $form_interceptor = new FormInterceptor($_POST);
     $login_data = $form_interceptor->get_login_model();
-    
+    $repo = new Persistence();
+
 ?>

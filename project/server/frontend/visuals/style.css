@@ -6,6 +6,10 @@
     color: white;
 }
 
+button{
+    cursor: pointer;
+}
+
 canvas {
     margin-left: auto;
     margin-right: auto;
@@ -34,7 +38,6 @@ h1, h2{
 }
 
 body{
-    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2934);
     background-image: url("resources/starry.png");
     background-repeat: repeat;
 }
