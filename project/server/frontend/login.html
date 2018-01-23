@@ -4,16 +4,19 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>The place</title>
-    <link rel="stylesheet" href="frontend/visuals/style.css">
+    <link rel="stylesheet" href="frontend/visuals/style.css">    
+    <script src="frontend/start.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
-    <h1>This is the place</h1>
+    <h1>Welcome to the place!</h1>
     <h2>Login</h2>
-    <form class="container" action="index.php" method="POST">
+    <form class="container" onsubmit="login(event)">
         <input type="text" name="username" placeholder="username" id="user_input" />
         <input type="password" name="password" placeholder="password" id="pass_input" />
-        <span style="display:none;" class="warning">Incorrect username and/or password.</span>
+        <span style="display:none;" id="warning" class="warning">Incorrect username and/or password.</span>
         <input type="submit" name="submit" value="Login" id="login_input" class="submit" />
         <a href='register_page.php' class="link">Register</a>
     </form>
