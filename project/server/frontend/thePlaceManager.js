@@ -63,8 +63,27 @@ class ThePlaceManager {
                 var mouseY = event.offsetY;
                 _this.painter.updatePixel(mouseX, mouseY, _this.clickedColor);
                 _this.resetTimer();
+                _this.saveData();
             }
         })
+    }
+
+    saveData(){
+        var image = this.painter.snapshot();
+        $.ajax({
+            type: 'POST',
+            url: 'save_change.php',
+            data: {
+                img: image
+            },
+            dataType: 'image/png',
+            success: function(response){
+                console.log(response);
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
     }
 
     resetTimer() {

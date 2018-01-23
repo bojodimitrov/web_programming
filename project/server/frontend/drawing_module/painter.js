@@ -60,6 +60,10 @@ class Painter {
         this.context.fillRect(pixelStartX, pixelStartY, currentMultiplier, currentMultiplier)
     }
 
+    snapshot(){
+        return this.canvas.toDataURL();
+    }
+
 
     getRGB(color_array) {
         return 'rgb(' + color_array[0] + ',' + color_array[1] + ',' + color_array[2] + ')'
