@@ -29,7 +29,7 @@ class Painter {
     }
 
     draw() {
-        var data = MockApi.getRandom();
+        var data = document.getElementById('img_place_src');;
         if (this.mode === 'large') {
             this.drawPlace(data, this.multiplier);
         }
@@ -39,10 +39,6 @@ class Painter {
     }
 
     drawPlace(img, pixelSize) {
-        // for (var i = 0; i < data.length; i++) {
-        //     this.context.fillStyle = this.getRGB(data[i][2]);
-        //     this.context.fillRect(data[i][0]*pixelSize, data[i][1]*pixelSize, pixelSize, pixelSize);
-        // }
         this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
     }
 
