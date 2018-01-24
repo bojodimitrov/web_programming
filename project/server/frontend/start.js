@@ -1,5 +1,5 @@
 function start(){
-    var defaultWaitTime = 120;
+    var defaultWaitTime = 2;
     var palitra_colors = [
         'rgb(0, 0, 255)',
         'rgb(0, 255, 0)',
